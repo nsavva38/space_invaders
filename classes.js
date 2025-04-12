@@ -11,15 +11,28 @@ export class Player {
       y: 0
     }
 
-    // this.image = 
-    this.width = 100;
-    this.height = 100;
+    const image = new Image()
+    image.src = "./images/spaceship.png"
+    image.onload = () => {
+      const scale = 0.15;
+      this.image = image;
+      this.width = image.width * scale;
+      this.height = image.height * scale;
+    }
   }
 
   draw () {
-    this.canvasContext.fillStyle = 'red';
-    this.canvasContext.fillRect(this.position.x, this.position.y,
-      this.width, this.height
-    )
+    // this.canvasContext.fillStyle = 'red';
+    // this.canvasContext.fillRect(this.position.x, this.position.y,
+    //   this.width, this.height);
+    if (this.image) {
+      this.canvasContext.drawImage(
+        this.image, 
+        this.position.x,
+        this.position.y, 
+        this.width, 
+        this.height,
+      )
+    }
   }
 }
