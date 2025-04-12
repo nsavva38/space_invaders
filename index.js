@@ -6,7 +6,7 @@ const canvasContext = canvas.getContext('2d');
 canvas.width = innerWidth;
 canvas.height = innerHeight;
 
-const player = new Classes.Player(canvasContext);
+const player = new Classes.Player(canvas, canvasContext);
 
 const animate = () => {
   requestAnimationFrame(animate);
