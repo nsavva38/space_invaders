@@ -38,7 +38,6 @@ addEventListener('keydown', ({key}) => {
     case 'a':
     case 'ArrowLeft':
       console.log('left');
-      player.velocity.x = -5;
       keys.a.pressed = true;
       break;
     case 'd':
