@@ -1,4 +1,4 @@
-export const animate = (canvas, canvasContext, player) => {
+export const animate = (canvas, canvasContext, player, keysObj) => {
   const loop = () => {
     requestAnimationFrame(loop);
 
@@ -6,6 +6,10 @@ export const animate = (canvas, canvasContext, player) => {
     canvasContext.fillRect(0, 0, canvas.width, canvas.height);
 
     player.update();
+
+    if (keysObj.a.pressed) {
+      player.velocity.x = -5;
+    }
   }
 
   loop();
