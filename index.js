@@ -1,4 +1,5 @@
 import * as Classes from './classes.js';
+import { animate } from './functions.js'
 
 const canvas = document.querySelector('canvas');
 const canvasContext = canvas.getContext('2d');
@@ -8,16 +9,7 @@ canvas.height = innerHeight;
 
 const player = new Classes.Player(canvas, canvasContext);
 
-const animate = () => {
-  requestAnimationFrame(animate);
-
-  canvasContext.fillStyle = 'black';
-  canvasContext.fillRect(0, 0, canvas.width, canvas.height);
-
-  player.update();
-}
-
-animate();
+animate(canvas, canvasContext, player);
 
 // can pass 'event' into the param instead of ({key})
 // but the ({key}) way allows us to destructure
