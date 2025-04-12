@@ -14,7 +14,7 @@ const animate = () => {
   canvasContext.fillStyle = 'black';
   canvasContext.fillRect(0, 0, canvas.width, canvas.height);
 
-  player.draw();
+  player.update();
 }
 
 animate();

@@ -26,7 +26,7 @@ export class Player {
     // this.canvasContext.fillStyle = 'red';
     // this.canvasContext.fillRect(this.position.x, this.position.y,
     //   this.width, this.height);
-    if (this.image) {
+    if(this.image && this.position) {
       this.canvasContext.drawImage(
         this.image, 
         this.position.x,
@@ -34,6 +34,14 @@ export class Player {
         this.width, 
         this.height,
       )
+    }  
+  }
+
+  update() {
+    if (this.image && this.position) {
+      this.draw()
+      this.position.x += this.velocity.x;
+
     }
   }
 }
