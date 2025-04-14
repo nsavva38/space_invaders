@@ -11,7 +11,9 @@ export const animate = (canvas, canvasContext, player, keysObj, projectilesArr) 
     projectilesArr.forEach((projectile, index) => {
 
       if (projectile.position.y + projectile.radius <= 0) {
-        projectilesArr.splice(index, 1);
+        setTimeout(() => {
+          projectilesArr.splice(index, 1);
+        }, 0)
       } else {
         projectile.update()
       }
