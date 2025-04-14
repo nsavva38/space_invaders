@@ -20,4 +20,4 @@ const keys = {
 
 
 Functions.animate(canvas, canvasContext, player, keys, projectiles);
-Functions.keyPress(keys, projectiles, canvasContext);
+Functions.keyPress(keys, projectiles, canvasContext, player);

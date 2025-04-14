@@ -33,7 +33,7 @@ export const animate = (canvas, canvasContext, player, keysObj, projectilesArr) 
 
 // can pass 'event' into the param instead of ({key})
 // but the ({key}) way is called destructure and is a little cleaner
-export const keyPress = (keys, projectilesArr, canvasContext) => {
+export const keyPress = (keys, projectilesArr, canvasContext, player) => {
   addEventListener('keydown', ({ key }) => {
     switch (key) {
       case 'a':
@@ -53,8 +53,8 @@ export const keyPress = (keys, projectilesArr, canvasContext) => {
         projectilesArr.push(new Classes.Projectile({
           canvasContext,
           position: {
-            x: 300,
-            y: 300
+            x: player.position.x + player.width / 2,
+            y: player.position.y
           },
           velocity: {
             x: 0,
