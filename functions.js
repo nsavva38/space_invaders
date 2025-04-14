@@ -8,8 +8,13 @@ export const animate = (canvas, canvasContext, player, keysObj, projectilesArr) 
     canvasContext.fillRect(0, 0, canvas.width, canvas.height);
 
     player.update();
-    projectilesArr.forEach(projectile => {
-      projectile.update()
+    projectilesArr.forEach((projectile, index) => {
+
+      if (projectile.position.y + projectile.radius <= 0) {
+        projectilesArr.splice(index, 1);
+      } else {
+        projectile.update()
+      }
     });
 
     const playerSpeed = 7;
