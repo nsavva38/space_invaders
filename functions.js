@@ -44,9 +44,11 @@ export const keyPress = (keys, projectilesArr, canvasContext, player) => {
   addEventListener('keydown', ({ key }) => {
     switch (key) {
       case 'a':
+      case 'ArrowLeft':
         keys.a.pressed = true;
         break;
       case 'd':
+      case 'ArrowRight':
         keys.d.pressed = true;
         break;
       case ' ':
@@ -62,7 +64,6 @@ export const keyPress = (keys, projectilesArr, canvasContext, player) => {
             y: -10
           }
         }))
-        console.log(projectilesArr);
         break;
     }
   });
@@ -70,9 +71,11 @@ export const keyPress = (keys, projectilesArr, canvasContext, player) => {
   addEventListener('keyup', ({ key }) => {
     switch (key) {
       case 'a':
+      case 'ArrowLeft':
         keys.a.pressed = false;
         break;
       case 'd':
+      case 'ArrowRight':
         keys.d.pressed = false;
         break;
       case ' ':
