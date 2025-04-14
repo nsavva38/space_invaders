@@ -7,10 +7,18 @@ export const animate = (canvas, canvasContext, player, keysObj) => {
 
     player.update();
 
-    if (keysObj.a.pressed) {
-      player.velocity.x = -5;
+    const playerSpeed = 7;
+    const spaceshipTilt = 0.15
+
+    if (keysObj.a.pressed && player.position.x >= 0) {
+      player.velocity.x = -playerSpeed;
+      player.rotation = -spaceshipTilt;
+    } else if (keysObj.d.pressed && player.position.x + player.width <= canvas.width) {
+      player.velocity.x = playerSpeed;
+      player.rotation = spaceshipTilt;
     } else {
       player.velocity.x = 0;
+      player.rotation = 0
     }
   }
 

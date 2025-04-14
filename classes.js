@@ -7,6 +7,7 @@ export class Player {
       x: 0,
       y: 0
     }
+    this.rotation = 0;
 
     const image = new Image()
     image.src = "./images/spaceship.png"
@@ -27,6 +28,12 @@ export class Player {
     // this.canvasContext.fillRect(this.position.x, this.position.y,
     //   this.width, this.height);
     if(this.image && this.position) {
+      this.canvasContext.save();
+      this.canvasContext.translate(this.position.x + this.width / 2, this.position.y + this.height / 2);
+
+      this.canvasContext.rotate(this.rotation);
+      this.canvasContext.translate(-this.position.x + -this.width / 2, -this.position.y + -this.height / 2);
+
       this.canvasContext.drawImage(
         this.image, 
         this.position.x,
@@ -34,6 +41,7 @@ export class Player {
         this.width, 
         this.height,
       )
+      this.canvasContext.restore();
     }  
   }
 

@@ -9,21 +9,11 @@ canvas.height = innerHeight;
 
 const player = new Classes.Player(canvas, canvasContext);
 const keys = {
-  a: {
-    pressed: false
-  },
-  d: {
-    pressed: false
-  }, 
-  w: {
-    pressed: false
-  },
-  s: {
-    pressed: false
-  },
-  space: {
-    pressed: false
-  },
+  a: {pressed: false},
+  d: {pressed: false}, 
+  w: {pressed: false},
+  s: {pressed: false},
+  space: {pressed: false},
 }
 
 
