@@ -9,6 +9,8 @@ export const animate = (canvas, canvasContext, player, keysObj) => {
 
     if (keysObj.a.pressed) {
       player.velocity.x = -5;
+    } else {
+      player.velocity.x = 0;
     }
   }
 
