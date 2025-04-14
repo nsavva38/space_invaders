@@ -52,18 +52,20 @@ export const keyPress = (keys, projectilesArr, canvasContext, player) => {
         keys.d.pressed = true;
         break;
       case ' ':
-        keys.space.pressed = true;
-        projectilesArr.push(new Classes.Projectile({
-          canvasContext,
-          position: {
-            x: player.position.x + player.width / 2,
-            y: player.position.y
-          },
-          velocity: {
-            x: 0,
-            y: -10
-          }
-        }))
+        if (!keys.space.pressed) {    // this if statement prevents projectiles from spawning if spacebar is held down. projectile can only be spawned/fired if the spacebar was not pressed/held down to begin with
+          keys.space.pressed = true;
+          projectilesArr.push(new Classes.Projectile({
+            canvasContext,
+            position: {
+              x: player.position.x + player.width / 2,
+              y: player.position.y
+            },
+            velocity: {
+              x: 0,
+              y: -10
+            }
+          }))
+        }
         break;
     }
   });
