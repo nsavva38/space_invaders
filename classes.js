@@ -1,7 +1,7 @@
 export class Player {
   constructor(canvas, canvasContext) {
     this.canvasContext = canvasContext;
-
+  
 
     this.velocity = {
       x: 0,
