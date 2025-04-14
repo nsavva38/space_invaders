@@ -1,4 +1,4 @@
-export const animate = (canvas, canvasContext, player, keysObj) => {
+export const animate = (canvas, canvasContext, player, keysObj, projectilesArr) => {
   const loop = () => {
     requestAnimationFrame(loop);
 
@@ -6,6 +6,9 @@ export const animate = (canvas, canvasContext, player, keysObj) => {
     canvasContext.fillRect(0, 0, canvas.width, canvas.height);
 
     player.update();
+    projectilesArr.forEach(projectile => {
+      projectile.update()
+    });
 
     const playerSpeed = 7;
     const spaceshipTilt = 0.15
@@ -30,52 +33,40 @@ export const animate = (canvas, canvasContext, player, keysObj) => {
 // but the ({key}) way is called destructure and is a little cleaner
 export const keyPress = (keys) => {
   addEventListener('keydown', ({ key }) => {
-    console.log(key);
     switch (key) {
       case 'a':
-        console.log('left');
         keys.a.pressed = true;
         break;
       case 'd':
-        console.log('right');
         keys.d.pressed = true;
         break;
       case 'w':
-        console.log('up');
         keys.w.pressed = true;
         break;
       case 's':
-        console.log('down');
         keys.s.pressed = true;
         break;
       case ' ':
-        console.log('spacebar');
         keys.space.pressed = true;
         break;
     }
   });
 
   addEventListener('keyup', ({ key }) => {
-    console.log(key);
     switch (key) {
       case 'a':
-        console.log('left');
         keys.a.pressed = false;
         break;
       case 'd':
-        console.log('right');
         keys.d.pressed = false;
         break;
       case 'w':
-        console.log('up');
         keys.w.pressed = false;
         break;
       case 's':
-        console.log('down');
         keys.s.pressed = false;
         break;
       case ' ':
-        console.log('spacebar');
         keys.space.pressed = false;
         break;
     }

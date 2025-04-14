@@ -8,6 +8,17 @@ canvas.width = innerWidth;
 canvas.height = innerHeight;
 
 const player = new Classes.Player(canvas, canvasContext);
+const projectiles = [new Classes.Projectile({
+  canvasContext,
+  position: {
+    x: 300,
+    y: 300
+  },
+  velocity: {
+    x: 0,
+    y: 0
+  }
+})];
 const keys = {
   a: {pressed: false},
   d: {pressed: false}, 
@@ -18,5 +29,5 @@ const keys = {
 
 
 
-Functions.animate(canvas, canvasContext, player, keys);
+Functions.animate(canvas, canvasContext, player, keys, projectiles);
 Functions.keyPress(keys);
