@@ -42,12 +42,6 @@ export const keyPress = (keys, projectilesArr, canvasContext, player) => {
       case 'd':
         keys.d.pressed = true;
         break;
-      case 'w':
-        keys.w.pressed = true;
-        break;
-      case 's':
-        keys.s.pressed = true;
-        break;
       case ' ':
         keys.space.pressed = true;
         projectilesArr.push(new Classes.Projectile({
@@ -58,9 +52,10 @@ export const keyPress = (keys, projectilesArr, canvasContext, player) => {
           },
           velocity: {
             x: 0,
-            y: -5
+            y: -10
           }
         }))
+        console.log(projectilesArr);
         break;
     }
   });
@@ -72,12 +67,6 @@ export const keyPress = (keys, projectilesArr, canvasContext, player) => {
         break;
       case 'd':
         keys.d.pressed = false;
-        break;
-      case 'w':
-        keys.w.pressed = false;
-        break;
-      case 's':
-        keys.s.pressed = false;
         break;
       case ' ':
         keys.space.pressed = false;
