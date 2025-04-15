@@ -14,9 +14,7 @@ const keys = {
   a: {pressed: false},
   d: {pressed: false}, 
   space: {pressed: false},
-}
-
-
+};
 const animateFunctionArg = {
   canvas, 
   canvasContext, 
@@ -25,5 +23,13 @@ const animateFunctionArg = {
   projectilesArr: projectiles, 
   invader
 };
+const keyPressArgs = {
+  keysObj: keys, 
+  projectilesArr: projectiles, 
+  canvasContext, 
+  player
+};
+
+
 Functions.animate(animateFunctionArg);
-Functions.keyPress({keysObj: keys, projectilesArr: projectiles, canvasContext, player});
+Functions.keyPress(keyPressArgs);
