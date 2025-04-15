@@ -9,6 +9,7 @@ canvas.height = innerHeight;
 
 const player = new Classes.Player(canvas, canvasContext);
 const projectiles = [];
+const invader = new Classes.Invader(canvas, canvasContext);
 const keys = {
   a: {pressed: false},
   d: {pressed: false}, 
@@ -17,5 +18,5 @@ const keys = {
 
 
 
-Functions.animate(canvas, canvasContext, player, keys, projectiles);
+Functions.animate(canvas, canvasContext, player, keys, projectiles, invader);
 Functions.keyPress(keys, projectiles, canvasContext, player);

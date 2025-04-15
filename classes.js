@@ -80,3 +80,55 @@ export class Projectile {
     this.position.y += this.velocity.y;
   }
 }
+
+
+
+
+export class Invader {
+  constructor(canvas, canvasContext) {
+    this.canvasContext = canvasContext;
+  
+
+    this.velocity = {
+      x: 0,
+      y: 0
+    }
+
+
+    const image = new Image()
+    image.src = "./images/invader.png"
+    image.onload = () => {
+      const scale = 1;
+      this.image = image;
+      this.width = image.width * scale;
+      this.height = image.height * scale;
+      this.position = {
+        x: canvas.width / 2 - this.width / 2,
+        y: canvas.height / 2
+      }
+    }
+  }
+
+  draw () {
+    // this.canvasContext.fillStyle = 'red';
+    // this.canvasContext.fillRect(this.position.x, this.position.y,
+    //   this.width, this.height);
+    if(this.image && this.position) {
+      this.canvasContext.drawImage(
+        this.image, 
+        this.position.x,
+        this.position.y, 
+        this.width, 
+        this.height,
+      )
+    }  
+  }
+
+  update() {
+    if (this.image && this.position) {
+      this.draw()
+      this.position.x += this.velocity.x;
+      this.position.y += this.velocity.y;
+    }
+  }
+}

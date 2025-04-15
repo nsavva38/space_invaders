@@ -1,13 +1,15 @@
 import * as Classes from './classes.js'
 
-export const animate = (canvas, canvasContext, player, keysObj, projectilesArr) => {
+export const animate = (canvas, canvasContext, player, keysObj, projectilesArr, invader) => {
   const loop = () => {
     requestAnimationFrame(loop);
 
     canvasContext.fillStyle = 'black';
     canvasContext.fillRect(0, 0, canvas.width, canvas.height);
 
+    invader.update();
     player.update();
+    
     projectilesArr.forEach((projectile, index) => {
 
       if (projectile.position.y + projectile.radius <= 0) {
