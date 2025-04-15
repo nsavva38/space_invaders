@@ -15,7 +15,7 @@ const keys = {
   d: {pressed: false}, 
   space: {pressed: false},
 };
-const animateArg = {
+const animateArgs = {
   canvas, 
   canvasContext, 
   player, 
@@ -31,5 +31,5 @@ const keyPressArgs = {
 };
 
 
-Functions.animate(animateArg);
+Functions.animate(animateArgs);
 Functions.keyPress(keyPressArgs);
