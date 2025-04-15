@@ -1,6 +1,6 @@
 import * as Classes from './classes.js'
 
-export const animate = (canvas, canvasContext, player, keysObj, projectilesArr, invader) => {
+export const animate = ({canvas, canvasContext, player, keysObj, projectilesArr, invader}) => {
   const loop = () => {
     requestAnimationFrame(loop);
 
@@ -9,7 +9,7 @@ export const animate = (canvas, canvasContext, player, keysObj, projectilesArr, 
 
     invader.update();
     player.update();
-    
+
     projectilesArr.forEach((projectile, index) => {
 
       if (projectile.position.y + projectile.radius <= 0) {
@@ -42,20 +42,20 @@ export const animate = (canvas, canvasContext, player, keysObj, projectilesArr, 
 
 // can pass 'event' into the param instead of ({key})
 // but the ({key}) way is called destructure and is a little cleaner
-export const keyPress = (keys, projectilesArr, canvasContext, player) => {
+export const keyPress = ({keysObj, projectilesArr, canvasContext, player}) => {
   addEventListener('keydown', ({ key }) => {
     switch (key) {
       case 'a':
       case 'ArrowLeft':
-        keys.a.pressed = true;
+        keysObj.a.pressed = true;
         break;
       case 'd':
       case 'ArrowRight':
-        keys.d.pressed = true;
+        keysObj.d.pressed = true;
         break;
       case ' ':
-        if (!keys.space.pressed) {    // this if statement prevents projectiles from spawning if spacebar is held down. projectile can only be spawned/fired if the spacebar was not pressed/held down to begin with
-          keys.space.pressed = true;
+        if (!keysObj.space.pressed) {    // this if statement prevents projectiles from spawning if spacebar is held down. projectile can only be spawned/fired if the spacebar was not pressed/held down to begin with
+          keysObj.space.pressed = true;
           projectilesArr.push(new Classes.Projectile({
             canvasContext,
             position: {
@@ -76,14 +76,14 @@ export const keyPress = (keys, projectilesArr, canvasContext, player) => {
     switch (key) {
       case 'a':
       case 'ArrowLeft':
-        keys.a.pressed = false;
+        keysObj.a.pressed = false;
         break;
       case 'd':
       case 'ArrowRight':
-        keys.d.pressed = false;
+        keysObj.d.pressed = false;
         break;
       case ' ':
-        keys.space.pressed = false;
+        keysObj.space.pressed = false;
         break;
     }
   });

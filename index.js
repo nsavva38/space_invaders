@@ -17,6 +17,13 @@ const keys = {
 }
 
 
-
-Functions.animate(canvas, canvasContext, player, keys, projectiles, invader);
-Functions.keyPress(keys, projectiles, canvasContext, player);
+const animateFunctionArg = {
+  canvas, 
+  canvasContext, 
+  player, 
+  keysObj: keys, 
+  projectilesArr: projectiles, 
+  invader
+};
+Functions.animate(animateFunctionArg);
+Functions.keyPress({keysObj: keys, projectilesArr: projectiles, canvasContext, player});
