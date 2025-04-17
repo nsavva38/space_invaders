@@ -132,3 +132,21 @@ export class Invader {
     }
   }
 }
+
+
+export class Grid {
+  constructor(canvas, canvasContext) {
+    this.position = {
+      x: 0,
+      y: 0
+    }
+    this.velocity = {
+      x: 0,
+      y: 0
+    }
+    this.invaders = [new Invader(canvas, canvasContext)]
+  }
+  update() {
+    
+  }
+}

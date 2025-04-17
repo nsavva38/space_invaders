@@ -9,7 +9,8 @@ canvas.height = innerHeight;
 
 const player = new Classes.Player(canvas, canvasContext);
 const projectiles = [];
-const invader = new Classes.Invader(canvas, canvasContext);
+// const invader = new Classes.Invader(canvas, canvasContext); // delete this line after finishing grid class
+const grids = [new Classes.Grid(canvas, canvasContext)];
 const keys = {
   a: {pressed: false},
   d: {pressed: false}, 
@@ -21,7 +22,8 @@ const animateArgs = {
   player, 
   keysObj: keys, 
   projectilesArr: projectiles, 
-  invader
+  // invader,
+  grids
 };
 const keyPressArgs = {
   keysObj: keys, 

@@ -1,13 +1,13 @@
 import * as Classes from './classes.js'
 
-export const animate = ({canvas, canvasContext, player, keysObj, projectilesArr, invader}) => {
+export const animate = ({canvas, canvasContext, player, keysObj, projectilesArr, grids}) => { // replaced invader with grids
   const loop = () => {
     requestAnimationFrame(loop);
 
     canvasContext.fillStyle = 'black';
     canvasContext.fillRect(0, 0, canvas.width, canvas.height);
 
-    invader.update();
+    // invader.update();
     player.update();
 
     projectilesArr.forEach((projectile, index) => {
@@ -20,6 +20,10 @@ export const animate = ({canvas, canvasContext, player, keysObj, projectilesArr,
         projectile.update()
       }
     });
+
+    grids.forEach(grid => {
+      grid.update();
+    })
 
     const playerSpeed = 7;
     const spaceshipTilt = 0.15
