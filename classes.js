@@ -85,7 +85,7 @@ export class Projectile {
 
 
 export class Invader {
-  constructor(canvas, canvasContext, {position}) {
+  constructor(canvas, canvasContext, {position}) {  // canvas isn't used?
     this.canvasContext = canvasContext;
   
 
@@ -135,7 +135,7 @@ export class Invader {
 
 
 export class Grid {
-  constructor(canvas, canvasContext) {
+  constructor(canvas, canvasContext) {   // may have to add {position} object here at some point
     this.position = {
       x: 0,
       y: 0
@@ -146,10 +146,11 @@ export class Grid {
     }
     this.invaders = []
 
+    const invaderWidth = 30;
     for (let i = 0; i < 10; i++) {
       this.invaders.push(new Invader(canvas, canvasContext, {position: {
-          x:i,
-          y:0
+          x: i * invaderWidth,
+          y: 0
         }
       }));
     }
