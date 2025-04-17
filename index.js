@@ -1,4 +1,5 @@
-import * as Classes from './classes.js';
+import * as playerClass from './playerClass.js';
+import * as enemiesClass from './enemiesClass.js';
 import * as Functions from './functions.js'
 
 const canvas = document.querySelector('canvas');
@@ -7,10 +8,10 @@ const canvasContext = canvas.getContext('2d');
 canvas.width = innerWidth;
 canvas.height = innerHeight;
 
-const player = new Classes.Player(canvas, canvasContext);
+const player = new playerClass.Player(canvas, canvasContext);
 const projectiles = [];
 // const invader = new Classes.Invader(canvas, canvasContext); // delete this line after finishing grid class
-const grids = [new Classes.Grid(canvas, canvasContext, {position : {x:0, y:0}})];
+const grids = [new enemiesClass.Grid(canvas, canvasContext, {position : {x:0, y:0}})];
 const keys = {
   a: {pressed: false},
   d: {pressed: false}, 
