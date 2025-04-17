@@ -1,4 +1,6 @@
-import * as Classes from './classes.js'
+// import * as Classes from './classes.js'
+import * as playerClass from './playerClass.js';
+// import * as enemiesClass from './enemiesClass.js';
 
 export const animate = ({canvas, canvasContext, player, keysObj, projectilesArr, grids}) => { // replaced invader with grids
   const loop = () => {
@@ -63,7 +65,7 @@ export const keyPress = ({keysObj, projectilesArr, canvasContext, player}) => {
       case ' ':
         if (!keysObj.space.pressed) {    // this if statement prevents projectiles from spawning if spacebar is held down. projectile can only be spawned/fired if the spacebar was not pressed/held down to begin with
           keysObj.space.pressed = true;
-          projectilesArr.push(new Classes.Projectile({
+          projectilesArr.push(new playerClass.Projectile({
             canvasContext,
             position: {
               x: player.position.x + player.width / 2,
