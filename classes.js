@@ -170,7 +170,9 @@ export class Grid {
     this.position.x += this.velocity.x;
     this.position.y += this.velocity.y;
 
-    if (this.position.x  + this.width >= this.canvas.width) {
+    if (this.position.x  + this.width >= this.canvas.width ||
+      this.position.x <= 0
+    ) {
       this.velocity.x = -this.velocity.x;
     }
   }
