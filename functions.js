@@ -24,7 +24,7 @@ export const animate = ({canvas, canvasContext, player, keysObj, projectilesArr,
     grids.forEach(grid => {
       grid.update();
       grid.invaders.forEach(invader => {
-        invader.update();
+        invader.update({velocity: grid.velocity});
       })
     })
 

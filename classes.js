@@ -124,11 +124,11 @@ export class Invader {
     }  
   }
 
-  update() {
+  update({velocity}) {
     if (this.image && this.position) {
       this.draw()
-      this.position.x += this.velocity.x;
-      this.position.y += this.velocity.y;
+      this.position.x += velocity.x;
+      this.position.y += velocity.y;
     }
   }
 }
@@ -141,15 +141,16 @@ export class Grid {
       y: 0
     }
     this.velocity = {
-      x: 0,
+      x: 3,
       y: 0
     }
     this.invaders = []
 
     const invaderWidth = 30;
     const invaderHeight = 30;
-    const rows = Math.floor(Math.random() * 5);
-    for (let i = 0; i < 10; i++) {
+    const rows = Math.floor(Math.random() * 5 + 2);
+    const columns = Math.floor(Math.random() * 10 + 5);
+    for (let i = 0; i < columns; i++) {
       for (let y = 0; y < rows; y++) {
         this.invaders.push(new Invader(canvas, canvasContext, {position: {
             x: i * invaderWidth,
@@ -161,6 +162,7 @@ export class Grid {
     console.log(this.invaders);
   }
   update() {
-
+    this.position.x += this.velocity.x;
+    this.position.y += this.velocity.y;
   }
 }
