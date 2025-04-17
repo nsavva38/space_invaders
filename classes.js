@@ -147,12 +147,15 @@ export class Grid {
     this.invaders = []
 
     const invaderWidth = 30;
+    const invaderHeight = 30;
     for (let i = 0; i < 10; i++) {
-      this.invaders.push(new Invader(canvas, canvasContext, {position: {
-          x: i * invaderWidth,
-          y: 0
-        }
-      }));
+      for (let y = 0; y < 10; y++) {
+        this.invaders.push(new Invader(canvas, canvasContext, {position: {
+            x: i * invaderWidth,
+            y: y * invaderHeight
+          }
+        }));
+      }
     }
     console.log(this.invaders);
   }
