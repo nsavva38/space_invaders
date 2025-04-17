@@ -136,6 +136,8 @@ export class Invader {
 
 export class Grid {
   constructor(canvas, canvasContext) {   // may have to add {position} object here at some point
+    this.canvas = canvas;
+    this.canvasContext = canvasContext;
     this.position = {
       x: 0,
       y: 0
@@ -150,6 +152,7 @@ export class Grid {
     const invaderHeight = 30;
     const rows = Math.floor(Math.random() * 5 + 2);
     const columns = Math.floor(Math.random() * 10 + 5);
+
     for (let i = 0; i < columns; i++) {
       for (let y = 0; y < rows; y++) {
         this.invaders.push(new Invader(canvas, canvasContext, {position: {
@@ -159,10 +162,16 @@ export class Grid {
         }));
       }
     }
+    
     console.log(this.invaders);
+    this.width = columns * invaderWidth;
   }
   update() {
     this.position.x += this.velocity.x;
     this.position.y += this.velocity.y;
+
+    if (this.position.x  + this.width >= this.canvas.width) {
+      this.velocity.x = -this.velocity.x;
+    }
   }
 }
