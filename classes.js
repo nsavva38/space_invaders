@@ -85,7 +85,7 @@ export class Projectile {
 
 
 export class Invader {
-  constructor(canvas, canvasContext) {
+  constructor(canvas, canvasContext, {position}) {
     this.canvasContext = canvasContext;
   
 
@@ -103,8 +103,8 @@ export class Invader {
       this.width = image.width * scale;
       this.height = image.height * scale;
       this.position = {
-        x: canvas.width / 2 - this.width / 2,
-        y: canvas.height / 2
+        x: position.x,
+        y: position.y
       }
     }
   }
@@ -147,7 +147,11 @@ export class Grid {
     this.invaders = []
 
     for (let i = 0; i < 10; i++) {
-      this.invaders.push(new Invader(canvas, canvasContext));
+      this.invaders.push(new Invader(canvas, canvasContext, {position: {
+          x:i,
+          y:0
+        }
+      }));
     }
     console.log(this.invaders);
   }

@@ -10,7 +10,7 @@ canvas.height = innerHeight;
 const player = new Classes.Player(canvas, canvasContext);
 const projectiles = [];
 // const invader = new Classes.Invader(canvas, canvasContext); // delete this line after finishing grid class
-const grids = [new Classes.Grid(canvas, canvasContext)];
+const grids = [new Classes.Grid(canvas, canvasContext, {position : {x:0, y:0}})];
 const keys = {
   a: {pressed: false},
   d: {pressed: false}, 
