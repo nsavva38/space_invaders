@@ -144,9 +144,14 @@ export class Grid {
       x: 0,
       y: 0
     }
-    this.invaders = [new Invader(canvas, canvasContext)]
+    this.invaders = []
+
+    for (let i = 0; i < 10; i++) {
+      this.invaders.push(new Invader(canvas, canvasContext));
+    }
+    console.log(this.invaders);
   }
   update() {
-    
+
   }
 }
