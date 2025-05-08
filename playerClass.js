@@ -62,7 +62,7 @@ export class Projectile {
     this.position = position;
     this.velocity = velocity;
 
-    this.radius = 3;
+    this.radius = 3.5;
   }
 
   draw() {

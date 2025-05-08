@@ -64,13 +64,13 @@ export class Grid {
 
     const invaderWidth = 30;
     const invaderHeight = 30;
-    const rows = Math.floor(Math.random() * 5 + 2);
     const columns = Math.floor(Math.random() * 10 + 5);
+    const rows = Math.floor(Math.random() * 5 + 2);
 
-    for (let i = 0; i < columns; i++) {
+    for (let x = 0; x < columns; x++) {
       for (let y = 0; y < rows; y++) {
         this.invaders.push(new Invader(canvas, canvasContext, {position: {
-            x: i * invaderWidth,
+            x: x * invaderWidth,
             y: y * invaderHeight
           }
         }));
