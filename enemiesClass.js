@@ -81,13 +81,17 @@ export class Grid {
     this.width = columns * invaderWidth;
   }
   update() {
+    const invaderDescendWhenTouchBorder = 30;
     this.position.x += this.velocity.x;
     this.position.y += this.velocity.y;
+
+    this.velocity.y = 0;
 
     if (this.position.x  + this.width >= this.canvas.width ||
       this.position.x <= 0
     ) {
       this.velocity.x = -this.velocity.x;
+      this.velocity.y = invaderDescendWhenTouchBorder;
     }
   }
 }
