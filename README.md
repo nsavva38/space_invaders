@@ -5,4 +5,4 @@ Modifications made are to improve readability.
 He has all the code in a single index.js file, whereas I separated classes and functions into
 their own files and import them into index.js
 
-Resume Time: 1:03:06
+Resume Time: 1:12:34
