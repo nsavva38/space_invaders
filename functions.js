@@ -32,13 +32,14 @@ export const animate = ({canvas, canvasContext, player, keysObj, projectilesArr,
         invader.update({velocity: grid.velocity});
 
         projectilesArr.forEach((projectile, projectileIndex) => {
-          const middleOfProjectile = projectile.position.y;
-          const topOfProjectile = middleOfProjectile - projectile.radius;
+// i think projectile.x would work too, or not cus we want y axis specifically
+          const topOfProjectile = projectile.position.y - projectile.radius;
           const bottomOfInvader = invader.position.y + invader.height;
+          const rightSideOfProjectile = projectile.position.x + projectile.radius;
+          const leftSideOfProjectile = projectile.position.x - projectile.radius
           if (topOfProjectile <= bottomOfInvader && 
-          projectile.position.x + projectile.radius >= 
-        invader.position.x && projectile.position.x - projectile.radius <=
-      invader.position.x) {
+          rightSideOfProjectile >= invader.position.x && 
+          leftSideOfProjectile <= invader.position.x) {
               setTimeout(() => {
                 grid.invaders.splice(invaderIndex, 1);
                 projectilesArr.splice(projectileIndex, 1);
