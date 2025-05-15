@@ -6,3 +6,6 @@ He has all the code in a single index.js file, whereas I separated classes and f
 their own files and import them into index.js
 
 Resume Time: 1:12:34
+
+git commit -am "message" - adds and commits in one line
+git commit -am "message" && git push - adds, commits, and pushes
