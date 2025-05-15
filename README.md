@@ -9,3 +9,7 @@ Resume Time: 1:22:16
 
 git commit -am "message" - adds and commits in one line
 git commit -am "message" && git push - adds, commits, and pushes
+
+Don't forget, screen renders from top to bottom. 
+The (0,0) coordinate is the top left, and the values INCREASE 
+  the more towards the bottom right you go.
