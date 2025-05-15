@@ -30,6 +30,13 @@ export const animate = ({canvas, canvasContext, player, keysObj, projectilesArr,
       grid.update();
       grid.invaders.forEach(invader => {
         invader.update({velocity: grid.velocity});
+
+        projectilesArr.forEach(projectile => {
+          if (projectile.position.y - projectile.radius <= 
+            invader.position.y + invader.height) {
+              console.log(`hit`);
+            }
+        })
       })
     })
 
@@ -52,6 +59,7 @@ export const animate = ({canvas, canvasContext, player, keysObj, projectilesArr,
       grids.push(new enemiesClass.Grid(canvas, canvasContext));
       console.log(`spawned at ${frames} frames at ${randomSpawnInterval} interval`);
       randomSpawnInterval = Math.floor(Math.random() * 500 + 500);
+      frames = 0;
     }
 
     frames++;
