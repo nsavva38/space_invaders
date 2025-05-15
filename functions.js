@@ -26,15 +26,18 @@ export const animate = ({canvas, canvasContext, player, keysObj, projectilesArr,
       }
     });
 
-    grids.forEach(grid => {
+    grids.forEach((grid) => {
       grid.update();
-      grid.invaders.forEach(invader => {
+      grid.invaders.forEach((invader, invaderIndex) => {
         invader.update({velocity: grid.velocity});
 
-        projectilesArr.forEach(projectile => {
+        projectilesArr.forEach((projectile, projectileIndex) => {
           if (projectile.position.y - projectile.radius <= 
             invader.position.y + invader.height) {
-              console.log(`hit`);
+              setTimeout(() => {
+                grid.invaders.splice(invaderIndex, 1);
+                projectilesArr.splice(projectileIndex, 1);
+              }, 0);
             }
         })
       })
