@@ -17,7 +17,6 @@ const keys = {
   d: {pressed: false}, 
   space: {pressed: false},
 };
-let frames = 0;
 
 const animateArgs = {
   canvas, 
@@ -26,8 +25,7 @@ const animateArgs = {
   keysObj: keys, 
   projectilesArr: projectiles, 
   // invader,
-  grids,
-  frames
+  grids
 };
 const keyPressArgs = {
   keysObj: keys, 

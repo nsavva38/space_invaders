@@ -3,8 +3,9 @@ import * as playerClass from './playerClass.js';
 import * as enemiesClass from './enemiesClass.js';
 
 
-let randomSpawn = Math.floor(Math.random() * 500 + 500);
-export const animate = ({canvas, canvasContext, player, keysObj, projectilesArr, grids, frames}) => { // replaced invader with grids
+let frames = 0;
+let randomSpawnInterval = Math.floor(Math.random() * 500 + 500);
+export const animate = ({canvas, canvasContext, player, keysObj, projectilesArr, grids}) => { // replaced invader with grids
   const loop = () => {
     requestAnimationFrame(loop);
 
@@ -47,10 +48,10 @@ export const animate = ({canvas, canvasContext, player, keysObj, projectilesArr,
     }
 
 
-    if (frames % randomSpawn === 0) {
+    if (frames % randomSpawnInterval === 0) {
       grids.push(new enemiesClass.Grid(canvas, canvasContext));
-      console.log(`spawned at ${frames} frames at ${randomSpawn} interval`);
-      randomSpawn = Math.floor(Math.random() * 500 + 500);
+      console.log(`spawned at ${frames} frames at ${randomSpawnInterval} interval`);
+      randomSpawnInterval = Math.floor(Math.random() * 500 + 500);
     }
 
     frames++;
