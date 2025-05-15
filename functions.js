@@ -32,8 +32,13 @@ export const animate = ({canvas, canvasContext, player, keysObj, projectilesArr,
         invader.update({velocity: grid.velocity});
 
         projectilesArr.forEach((projectile, projectileIndex) => {
-          if (projectile.position.y - projectile.radius <= 
-            invader.position.y + invader.height) {
+          const middleOfProjectile = projectile.position.y;
+          const topOfProjectile = middleOfProjectile - projectile.radius;
+          const bottomOfInvader = invader.position.y + invader.height;
+          if (topOfProjectile <= bottomOfInvader && 
+          projectile.position.x + projectile.radius >= 
+        invader.position.x && projectile.position.x - projectile.radius <=
+      invader.position.x) {
               setTimeout(() => {
                 grid.invaders.splice(invaderIndex, 1);
                 projectilesArr.splice(projectileIndex, 1);
